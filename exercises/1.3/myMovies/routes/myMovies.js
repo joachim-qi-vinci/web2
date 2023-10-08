@@ -47,6 +47,14 @@ router.get('/', function(req, res, next) {
       return res.json(filmsReachingMinimumDuration);
 });
 
+router.get('/:id', function (req, res) {
+    
+    const filmFound = MYMOVIES.findIndex((movie) => movie.id == req.params.id);
+    if (filmFound < 0){
+        return res.sendStatus(404);
+    }
+    res.json(MYMOVIES[filmFound]);
+});
 
 
 
