@@ -45,6 +45,9 @@ router.get('/', function(req, res, next) {
         (movie) => movie.duration >= minimumDuration
       );
       return res.json(filmsReachingMinimumDuration);
+
+
+      
 });
 
 router.get('/:id', function (req, res) {
@@ -56,8 +59,40 @@ router.get('/:id', function (req, res) {
     res.json(MYMOVIES[filmFound]);
 });
 
+// Create a pizza to be added to the menu.
+router.post('/',(req,res) => {
+    const title =
+    req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
+    const link =
+    req?.body?.content?.trim().length !== 0 ? req.body.link : undefined;
+  const duration =
+    typeof req?.body?.duration !== 'number' || req.body.duration < 0
+      ? undefined
+      : req.body.duration;
+  const budget =
+    typeof req?.body?.budget !== 'number' || req.body.budget < 0
+      ? undefined
+      : req.body.budget;
 
 
+    console.log('POST /pizzas');
+    console.log('TITLE ' + title);
+    console.log('DURATION ' + duration);
+    
+
+    if ( !title || !duration || !budget || !link) return res.sendStatus(400); // error code '400 Bad request'
+  
+    const lastMovieIndex = MYMOVIES?.length !== 0 ? MYMOVIES.length - 1 : undefined;
+    const lastId = lastMovieIndex !== undefined ? MYMOVIES[lastMovieIndex]?.id : 0;
+    const nextId = lastId + 1;
+  
+    const newMovie = {
+      id: nextId, title, duration, budget, link};
+  
+    MYMOVIES.push(newMovie)
+    res.json(newMovie);
+  });
+  
   
 
 
