@@ -21,7 +21,8 @@ const Navbar = () => {
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,11 +34,8 @@ const Navbar = () => {
                 <a class="nav-link" href="#" data-uri="/new">New Page</a>
               </li> 
               <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/connexion">Login</a>
-            </li>  
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/inscription">Inscription</a>
-            </li>                        
+                <a class="nav-link" href="#" data-uri="/quizz">Quizz</a>
+              </li>                         
             </ul>
           </div>
         </div>

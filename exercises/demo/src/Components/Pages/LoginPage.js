@@ -1,4 +1,5 @@
 import { clearPage } from '../../utils/render';
+import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
     clearPage();
@@ -47,8 +48,7 @@ function renderLoginPage() {
     
                             <hr class="mx-n3">
                             <div class="mx-5">
-                                <a href="http://localhost:8080/inscription">Pas encore inscrit ? Inscrivez-vous ici</a>   
-                               
+                                <a href="" id = "toInscription">Pas encore inscrit ? Inscrivez-vous ici</a>  
                             </div>
 
                             <div class="px-5 py-4">
@@ -64,7 +64,14 @@ function renderLoginPage() {
         </div>
     </section>
     `
+
+    const link = document.querySelector('#toInscription');
+link.addEventListener('click', () => {
+    Navigate('/inscription')
+})
 }
+
+
 
 
 export default LoginPage;

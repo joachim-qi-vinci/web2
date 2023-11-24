@@ -16,13 +16,9 @@ const Joke = () => {
     })
 }
 
-
-
-
 function renderJoke(joke) {
     const main = document.querySelector('main');
     main.innerHTML = `${joke.joke}`
 }
-
 
 export default Joke
